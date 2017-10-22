@@ -1,7 +1,36 @@
 body {
-  background: url('http://www.malwarwickonbooks.com/wp-content/uploads/2016/03/books.jpg') no-repeat center center fixed;
+  background: url('http://www.malwarwickonbooks.com/wp-content/uploads/2016/03/books.jpg')  no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   background-size: cover;
   -o-background-size: cover;
+font-family: Verdana;
+}
+h3
+{
+color: #f3f3f3;
+
+}
+#Rejestracja 
+{
+      background-color: #cc0033;
+      color: white;
+      cursor:pointer; 
+}
+
+#Logo
+{	
+	color: white; 
+	margin:10px; 
+}
+
+#Panel_log
+{
+	border: 0.5px; 
+	border-color: white; 
+	border-style: solid; 
+	padding: 20px; 
+	background-color: #1f1f1f;" 
+
+
 }
