@@ -1,3 +1,11 @@
+<?php
+	session_start();
+	if((isset($_SESSION['isLogin']) && ($_SESSION['isLogin'] == TRUE))){
+		header('Location: account.php');
+		exit();
+	}
+?>
+
 <!doctype html>
 <html lang="pl">
   <head>
@@ -6,7 +14,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="author" content="Damian Henisz, Michał Żakowski">
+    <meta name="author" content="Damian Henisz, Michał Żakowski, Adam Wójcik">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
@@ -22,18 +30,18 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
-      
+    
     <nav class="navbar" style="padding-bottom: 150px;"> 
-      	
+      	<!--padding na  200px lepiej wyglada -->
         <p id="Logo" class="navbar-brand"> <b> WEBAPP </b> </p>
           <p class="navbar-right" style="padding-top: 20px;" >
             <a href="rejestracja.html">
             <button id="Rejestracja" type="button" class="btn btn-default btn-sm" > Register
               <i class="fa fa-user-circle"> </i>
 
+    </nav>
             </button> </a>  
             </p>
-    </nav>
       
 
     <div class="row" >
@@ -46,25 +54,28 @@
                     <center> <h3 class="panel-title" > Please Sign In </h3></center>
 			 	</div>
 			  	<div class="panel-body" >
-			    	<form accept-charset="UTF-8" role="form">
+			    	<form action = "/php/login.php" method = "post" accept-charset="UTF-8" role="form">
                     <fieldset>
-			    	  	<div class="form-group">
-			    		    <input class="form-control" placeholder="E-mail" name="email" type="text">
-			    		</div>
               <div class="form-group">
-                 <input class="form-control" placeholder="Login" name="login" type="text">
+                 <input class="form-control" placeholder="Login or email" name="login" type="text">
                </div>
 			    		<div class="form-group">
 			    			<input class="form-control" placeholder="Password" name="password" type="password" value="">
 			    		</div>
 			    		<div class="checkbox" style="color: #f3f3f3;" >
 			    	    	<label>
-			    	    		<input name="remember" type="checkbox" value="Remember Me"> Remember Me
+			    	    		<input name="remember" type="checkbox" name="remember" value="Remember Me"> Remember Me
 			    	    	</label>
 			    	    </div>
 			    	<input class="btn btn-lg btn-success btn-block" type="submit" value="Log in" style="background-color: #cc0033; cursor:pointer;">
 			    	</fieldset>
 			      	</form>
+				
+					<?php
+						if(isset($_SESSION['loginError']))
+						echo $_SESSION['loginError'];
+					?>
+					
 			    </div>
 			</div>
 		</div>
