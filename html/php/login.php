@@ -21,38 +21,34 @@
 		$password = $_POST['password'];
 		$remember = $_POST['remember'];
         
-        echo $login."<br/>".$password;
-        echo "<br/>DB is connect"; //test
-        
 		$login = htmlentities($login, ENT_QUOTES, "UTF-8");
 		$password = htmlentities($password, ENT_QUOTES, "UTF-8");
-		 //nazwa kolumny w db
 		
-		if($result = @$connection -> query(sprintf("SELECT * FROM users WHERE ( user = '%s' OR Email = '%s' ) AND Password = '%s'",
-			mysql_real_escape_string($connection, $login),
-			mysql_real_escape_string($connection, $login),
-			mysql_real_escape_string($connection, $password)))){
+		if($result = @$connection -> query(sprintf("SELECT * FROM 'users' WHERE (Login = '%s' OR Email = '%s') AND Password = '%s'",
+			mysqli_real_escape_string($connection, $login),
+			mysqli_real_escape_string($connection, $login),
+			mysqli_real_escape_string($connection, $password)))){
 				
 			$howMany = $result -> num_rows;
-			
+
 			if($howMany > 0){
 				$_SESSION['isLogin'] = TRUE;
 				
 				$line = $result -> fetch_assoc();
 				$_SESSION['id'] = $line['id'];
-				$_SESSION['user'] = $line['user']; //nazwa kolumny w db
+				$_SESSION['user'] = $line['Login'];
 				
 				unset($_SESSION['loginError']);
 				$result -> free_result();
-				
 				header('Location: account.php');
 				
 			} else {
-				
-				$_SESSION['loginError'] = '<span style = "color:red"> Nieprawidłowy login lub hasło! </span>';
-				
+				$_SESSION['loginError'] = '<span style = "color:red"> Wrong login or password! </span>';
 				header('Location: ../index.php');
 			}
+		}else{
+			$_SESSION['loginError'] = '<span style = "color:red"> We have temporary server problems. Sorry. </span>';
+			header('Location: ../index.php');									
 		}
 		
 		$connection -> close();
