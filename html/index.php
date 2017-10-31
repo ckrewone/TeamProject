@@ -38,11 +38,10 @@
             <a href="rejestracja.html">
             <button id="Rejestracja" type="button" class="btn btn-default btn-sm" > Register
               <i class="fa fa-user-circle"> </i>
-
-    </nav>
-            </button> </a>  
-            </p>
-      
+                </button> 
+                 </a>
+               </p>
+       </nav>
 
     <div class="row" >
       <div class="container padding=2">
