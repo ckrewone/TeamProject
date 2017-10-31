@@ -1,5 +1,5 @@
 <?php
-	$host = "80.211.249.72";
+	$host = "localhost";
 	$db_user = "root";
 	$db_pass = "Ldzsqad1";
 	$db_name = "webapp"; // nazwa bazy danych
