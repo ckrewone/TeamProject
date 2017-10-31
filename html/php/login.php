@@ -13,17 +13,22 @@
 
 	if($connection -> connect_errno != FALSE){
 		echo "Can't connect to a database. Error number:".$connection -> connect_errno;
-	} else {
-		
+	} 
+    else
+    {
+
 		$login = $_POST['login'];
 		$password = $_POST['password'];
 		$remember = $_POST['remember'];
-		
+        
+        echo $login."<br/>".$password;
+        echo "<br/>DB is connect"; //test
+        
 		$login = htmlentities($login, ENT_QUOTES, "UTF-8");
 		$password = htmlentities($password, ENT_QUOTES, "UTF-8");
 		 //nazwa kolumny w db
 		
-		if($result = @$connection -> query(sprintf("SELECT * FROM uzytkownicy WHERE ( user = '%s' OR email = '%s' ) AND pass = '%s'",
+		if($result = @$connection -> query(sprintf("SELECT * FROM users WHERE ( user = '%s' OR Email = '%s' ) AND Password = '%s'",
 			mysql_real_escape_string($connection, $login),
 			mysql_real_escape_string($connection, $login),
 			mysql_real_escape_string($connection, $password)))){
