@@ -1,7 +1,7 @@
 <?php
 	session_start();
 	if((isset($_SESSION['isLogin']) && ($_SESSION['isLogin'] == TRUE))){
-		header('Location: account.php');
+		header('Location: php/account.php');
 		exit();
 	}
 ?>
@@ -71,8 +71,10 @@
 			      	</form>
 				
 					<?php
-						if(isset($_SESSION['loginError']))
-						echo $_SESSION['loginError'];
+						if(isset($_SESSION['loginError'])){
+              echo $_SESSION['loginError'];
+              unset($_SESSION['loginError']);
+            }
 					?>
 					
 			    </div>
