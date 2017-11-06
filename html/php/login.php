@@ -12,7 +12,7 @@
 	$connection = @new mysqli($host, $db_user, $db_pass, $db_name);
 
 	if($connection -> connect_errno != FALSE){
-		echo "Can't connect to a database. Error number:".$connection -> connect_errno;
+		echo "Nie można połączyć się z bazą. Numer błędu:".$connection -> connect_errno;
 	} 
     else
     {
@@ -43,16 +43,16 @@
 				$result -> free_result();
 				header('Location: account.php');
 			} else {
-				$_SESSION['loginError'] = '<span style = "color:red"> Wrong login or password! </span>';
+				$_SESSION['loginError'] = '<span style = "color:red"> Zły login lub hasło! </span>';
 				header('Location: ../index.php');
 			}
 				
 		} else {
-			$_SESSION['loginError'] = '<span style = "color:red"> Wrong login or password! </span>';
+			$_SESSION['loginError'] = '<span style = "color:red"> Zły login lub hasło! </span>';
 			header('Location: ../index.php');
 		}
 	}else{
-		$_SESSION['loginError'] = '<span style = "color:red"> We have temporary server problems. Sorry. </span>';
+		$_SESSION['loginError'] = '<span style = "color:red"> Chwilowe problemy z serwerem. Przepraszamy. </span>';
 		header('Location: ../index.php');									
 	}
 		

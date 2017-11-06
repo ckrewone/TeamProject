@@ -112,15 +112,11 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-          <link href="css/full.css" rel="stylesheet" type="text/css">
-          <link href="css/signing.css" rel="stylesheet" type="text/css">
+          <link href="../css/full.css" rel="stylesheet" type="text/css">
+          <link href="../css/signing.css" rel="stylesheet" type="text/css">
           
     <style>
-      .error{
-         color:red;
-         margin-top: 10px;
-         margin-bottom: 10px;
-       }
+    
     </style>
 
     <script src='https://www.google.com/recaptcha/api.js'></script>
@@ -134,7 +130,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
       
-    <nav class="navbar" style="padding-bottom: 150px;"> 
+    <nav class="navbar" style="padding-bottom: 90px;"> 
       	<!--padding na  200px lepiej wyglada -->
         <p id="Logo" class="navbar-brand"> <b> WEBAPP </b> </p>
           <p class="navbar-right" style="padding-top: 20px;" >
@@ -152,8 +148,7 @@
     <div class="row vertical-offset-100">
         <div class="col-md-4 col-md-offset-4"></div>
         <div class="col-md-4 col-md-offset-4">
-    		<div class="panel panel-default" style="border: 0.5px; border-color: white; border-style: solid; padding: 20px; background-color: #1f1f1f;" >
-
+    		<div  id="Panel_log" class="panel panel-default">
 			  	<div class="panel-heading">
                     <center> <h3 class="panel-title" > Stwórz konto </h3></center>
 			 	</div>
@@ -207,21 +202,19 @@
                       unset($_SESSION['error_bot']);
                     }
 				  ?>
-				  
-				</br>
+				  <br>
 				
 			    <input class="btn btn-lg btn-success btn-block" type="submit" value="Zarejestruj się" style="background-color: #cc0033; cursor:pointer;">
 			    </fieldset>
 			    </form>
-			
+	        </div>		
 			</div>
 		</div>
         <div class="col-md-4 col-md-offset-4"></div>
-	</div>
-    
-</div>
-  
-
+	
+    </div>
+        </div>
+      </div>
 
   
   </body>

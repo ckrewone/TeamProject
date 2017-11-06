@@ -36,9 +36,8 @@
         <p id="Logo" class="navbar-brand"> <b> WEBAPP </b> </p>
           <p class="navbar-right" style="padding-top: 20px;" >
             <a href="php/registration.php">
-            <button id="Rejestracja" type="button" class="btn btn-default btn-sm" > Rejestracja
-              <i class="fa fa-user-circle"> </i>
-                </button> 
+            <button id="Rejestracja" type="button" class="btn btn-default btn-sm" > Register
+              <i class="fa fa-user-circle"> </i>                </button> 
                  </a>
                </p>
        </nav>
@@ -50,25 +49,26 @@
         <div class="col-md-4 col-md-offset-4">
     		<div  id="Panel_log" class="panel panel-default">
 			  	<div class="panel-heading">
-                    <center> <h3 class="panel-title" > Logowanie </h3></center>
+                    <center> <h3 class="panel-title" > Please Sign In </h3></center>
 			 	</div>
 			  	<div class="panel-body" >
 			    	<form action = "/php/login.php" method = "post" accept-charset="UTF-8" role="form">
                     <fieldset>
               <div class="form-group">
-                 <input class="form-control" placeholder="Login lub email" name="login" type="text">
+                 <input class="form-control" placeholder="Login or email" name="login" type="text">
                </div>
 			    		<div class="form-group">
-			    			<input class="form-control" placeholder="Hasło" name="password" type="password" value="">
+			    			<input class="form-control" placeholder="Password" name="password" type="password" value="">
 			    		</div>
 			    		<div class="checkbox" style="color: #f3f3f3;" >
 			    	    	<label>
-			    	    		<input name="remember" type="checkbox" name="remember" value="Remember Me"> Zapamiętaj mnie
+			    	    		<input name="remember" type="checkbox" name="remember" value="Remember Me"> Remember Me
 			    	    	</label>
 			    	    </div>
-			    	<input class="btn btn-lg btn-success btn-block" type="submit" value="Zaloguj się" style="background-color: #cc0033; cursor:pointer;">
+			    	<input class="btn btn-lg btn-success btn-block" type="submit" value="Log in" style="background-color: #cc0033; cursor:pointer;">
 			    	</fieldset>
 			      	</form>
+				
 					<?php
 						if(isset($_SESSION['loginError'])){
 							echo $_SESSION['loginError'];
