@@ -1,6 +1,6 @@
 
 body::before {
-  background: url(/img/bg.jpg) no-repeat center center;
+  background: url(../img/bg.jpg) no-repeat center center;
   content: '';
   z-index: -1;
   width: 100%;
@@ -41,7 +41,7 @@ color: #ffffff;
 { 
 	border-style: none; 
 	padding: 30px; 
-    	background-image: url(/img/1.png)
+    background-image: url(/img/1.png)
 
 }
 
