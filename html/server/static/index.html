@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> <!--skip-->
+        <title>EasyRTC Demo: Audio and Video</title>
+        <link rel="stylesheet" type="text/css" href="/easyrtc/easyrtc.css" />
+
+        <!--hide-->
+        <link rel="stylesheet" type="text/css" href="css/landing.css" />
+
+        <!-- Prettify Code -->
+        <script type="text/javascript" src="js/prettify/prettify.js"></script>
+        <script type="text/javascript" src="js/prettify/loadAndFilter.js"></script>
+        <script type="text/javascript" src="js/prettify/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="js/prettify/prettify.css" />
+
+        <!--show-->
+        <!-- Assumes global locations for socket.io.js and easyrtc.js -->
+        <script src="/socket.io/socket.io.js"></script>
+        <script type="text/javascript" src="/easyrtc/easyrtc.js"></script>
+        <script type="text/javascript" src="js/audio_video.js"></script>
+
+        <!--hide-->
+        <!-- Styles used within the demo -->
+        <style type="text/css">
+            #demoContainer {
+                position:relative;
+            }
+            #connectControls {
+                float:left;
+                width:250px;
+                text-align:center;
+                border: 2px solid black;
+            }
+            #otherClients {
+                height:200px;
+                overflow-y:scroll;
+            }
+            #selfVideo {
+                height:225px;
+                width:300px;
+                float:left;
+                border:1px solid gray;
+                margin-left:10px;
+            }
+            #callerVideo {
+                height:225px;
+                width:300px;
+                border:1px solid gray;
+                margin-left:10px;
+            }
+            #acceptCallBox {
+                display:none;
+                z-index:2;
+                position:absolute;
+                top:100px;
+                left:400px;
+                border:red solid 2px;
+                background-color:pink;
+                padding:15px;
+            }
+        </style>
+        <!--show-->
+    </head>
+    <body>
+         <!--hide-->
+        <div id="container">
+
+                <!--hide-->
+                <!-- Main Content -->
+
+                <hr />
+                <h2>webChat</h2>
+                <!--show-->
+                <div id="Container">
+                    <div id="connectControls">
+                        <input type="checkbox" checked="checked" id="shareAudio" />Share audio
+                        <input type="checkbox" checked="checked" id="shareVideo" />Share video<br />
+                        <input type="checkbox" checked="checked" id="expectAudio" />Expect audio
+                        <input type="checkbox" checked="checked" id="expectVideo" />Expect video<br />
+
+                        <input type="checkbox" id="useFreshIce" onclick="easyrtc.setUseFreshIceEachPeerConnection(this.value);"/>Fresh Ice<br />
+                        <button id="connectButton" onclick="connect()">Connect</button>
+                        <button id="disconnectButton" onclick="disconnect()">Disconnect</button>
+                        <button id="hangupButton" disabled="disabled" onclick="hangup()">Hangup</button>
+                        <div id="iam">Not yet connected...</div>
+                        <br />
+                        <strong>Connected users:</strong>
+                        <div id="otherClients"></div>
+                    </div>
+
+                    <div id="videos">
+                        <video autoplay="autoplay" id="selfVideo"  class="easyrtcMirror" muted="muted" volume="0"></video>
+                        <video autoplay="autoplay" id="callerVideo"></video>
+                        <div id="acceptCallBox"> <!-- Should be initially hidden using CSS -->
+                            <div id="acceptCallLabel"></div>
+                            <button id="callAcceptButton" >Accept</button> <button id="callRejectButton">Reject</button>
+                        </div>
+                    </div>
+                </div>
+                <!--hide-->
+                <br style="clear:both;" />
+                <hr />
+
+
+            </div>
+        </div>
+        <!--show-->
+    </body>
+</html>
