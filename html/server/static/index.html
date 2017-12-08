@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> <!--skip-->
-        <title>EasyRTC Demo: Audio and Video</title>
+        <title>Web App</title>
         <link rel="stylesheet" type="text/css" href="/easyrtc/easyrtc.css" />
 
         <!--hide-->
@@ -79,10 +79,10 @@
                         <input type="checkbox" checked="checked" id="expectAudio" />Expect audio
                         <input type="checkbox" checked="checked" id="expectVideo" />Expect video<br />
 
-                        <input type="checkbox" id="useFreshIce" onclick="easyrtc.setUseFreshIceEachPeerConnection(this.value);"/>Fresh Ice<br />
+                        <!-- <input type="checkbox" id="useFreshIce" onclick="easyrtc.setUseFreshIceEachPeerConnection(this.value);"/>Fresh Ice<br /> -->
                         <button id="connectButton" onclick="connect()">Connect</button>
-                        <button id="disconnectButton" onclick="disconnect()">Disconnect</button>
-                        <button id="hangupButton" disabled="disabled" onclick="hangup()">Hangup</button>
+                        <button id="disconnectButton" onclick="disconnect();clearBox('conversation');">Disconnect</button>
+                        <button id="hangupButton" disabled="disabled" onclick="hangup();clearBox('conversation');">Hangup</button>
                         <div id="iam">Not yet connected...</div>
                         <br />
                         <strong>Connected users:</strong>
@@ -101,6 +101,20 @@
                 <!--hide-->
                 <br style="clear:both;" />
                 <hr />
+
+            <div id="sendMessageArea">
+          <div id="iam"></div>
+          <textarea id="sendMessageText"></textarea>
+          <button id="btn" onclick="send()">Send</button>
+        </div>
+
+        <div id="receiveMessageArea"><br />
+          Messages:
+            
+              <br style="clear:both;" />
+                <hr />
+          <div id="conversation"></div>
+        </div>
 
 
             </div>
