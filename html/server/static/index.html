@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> <!--skip-->
-        <title>Web App</title>
+        <title>Web App </title>
         <link rel="stylesheet" type="text/css" href="/easyrtc/easyrtc.css" />
 
         <!--hide-->
@@ -19,6 +19,8 @@
         <script src="/socket.io/socket.io.js"></script>
         <script type="text/javascript" src="/easyrtc/easyrtc.js"></script>
         <script type="text/javascript" src="js/audio_video.js"></script>
+
+       
 
         <!--hide-->
         <!-- Styles used within the demo -->
@@ -59,6 +61,13 @@
                 background-color:pink;
                 padding:15px;
             }
+            #canvas{
+                height:500px;
+                width:610px;
+                float:left;
+                margin-left:10px;
+                border:2px solid black;
+            }
         </style>
         <!--show-->
     </head>
@@ -97,6 +106,24 @@
                             <button id="callAcceptButton" >Accept</button> <button id="callRejectButton">Reject</button>
                         </div>
                     </div>
+
+                    <div id="canvas">
+                        <canvas class="whiteboard"></canvas>
+                        <div class="colors">
+                            <div class="color black"></div>
+                            <div class="color red"></div>
+                            <div class="color green"></div>
+                            <div class="color blue"></div>
+                            <div class="color yellow"></div>
+                            <div class="color orange"></div>
+                            <div class="color gray"></div>
+                            <div class="color purple"></div>
+                          </div>
+                          <div class="buttons">
+                            <div class="button clear"></div>
+                            <a id="download"><div class="button save"></div></a>
+                          </div>
+                    </div>
                 </div>
                 <!--hide-->
                 <br style="clear:both;" />
@@ -120,5 +147,9 @@
             </div>
         </div>
         <!--show-->
+		
+      <!--canvas-->
+        <script src="js/canvas.js"></script>
+		<link rel="stylesheet" href="css/style.css">   
     </body>
 </html>

@@ -1,0 +1,76 @@
+
+/**
+ * Fix user-agent
+ */
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+h2 {
+    position: absolute;
+    left: 100px;
+    top: 150px;
+}
+
+
+
+/**
+ * Canvas
+ */
+
+.whiteboard{
+  height: 100%;
+  width: 100%;
+  position: relative;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  cursor: url(../image/pencil.cur), default;
+}
+
+.buttons{
+  position: absolute;
+  margin-left:5px;
+  top: 650px;
+}
+
+.colors {
+  position: absolute;
+  top: 260px;
+  margin-left:5px;
+}
+
+.color {
+  display: block;
+  cursor: pointer;
+  border-radius: 25px;
+  height: 48px;
+  width: 48px;
+}
+
+.button {
+  display: block;
+  cursor: pointer;
+  height: 48px;
+  width: 48px;
+}
+
+.button.clear { background-image: url(../image/eraser.png); }
+.button.save { background-image: url(../image/save.png); }
+
+.color.black { background-color: black; }
+.color.red { background-color: red; }
+.color.green { background-color: green; }
+.color.blue { background-color: blue; }
+.color.yellow { background-color: yellow; }
+.color.orange { background-color: orange; }
+.color.gray { background-color: gray; }
+.color.purple { background-color: purple; }

@@ -7,6 +7,10 @@ var haveSelfVideo = false;
 var user = "Guest "
 var selfEasyrtcid = "";
 
+var socket = io();
+var callerSocketID;
+var mySocketID;
+
 var callerid = null;
 
 function addToConversation(who, msgType, content) {
@@ -29,14 +33,27 @@ function enable(domId) {
 
 var onceOnly = true;
 
+function listener(who, msgType, content){
+	if(msgType == 'message'){
+		addToConversation(who, msgType, content);
+	} else if(msgType == 'callerID'){
+		getID(content);
+	}
+}
+
+function getID(callerID){
+	callerSocketID = callerID;
+}
+
 
 function connect() {	
   easyrtc.enableAudio(document.getElementById("shareAudio").checked);
   easyrtc.enableVideo(document.getElementById("shareVideo").checked);
-  easyrtc.setPeerListener(addToConversation);
+  easyrtc.setPeerListener(listener);
   easyrtc.enableDataChannels(true);
   easyrtc.setRoomOccupantListener( convertListToButtons);    
-  easyrtc.connect("easyrtc.audioVideo", loginSuccess, loginFailure);			  
+  easyrtc.connect("easyrtc.audioVideo", loginSuccess, loginFailure);	
+  mySocketID = socket.id;
   if( onceOnly ) {
       easyrtc.getAudioSinkList( function(list) {
          for(let ele of list ) {
@@ -137,6 +154,7 @@ function performCall(otherEasyrtcid) {
     var failureCB = function() {
         enable('otherClients');
     };
+	easyrtc.sendDataWS(otherEasyrtcid, "callerID",  mySocketID);
     easyrtc.call(otherEasyrtcid, successCB, failureCB, acceptedCB);
     enable('hangupButton');
 }

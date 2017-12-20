@@ -2,7 +2,7 @@
 var https   = require("https");              // http server core module
 var express = require("express");           // web framework external module
 var serveStatic = require('serve-static');  // serve static files
-var socketIo = require("socket.io");        // web socket external module
+var socketIo = require("socket.io")(https);        // web socket external module
 var easyrtc = require("../");               // EasyRTC external module
 var fs = require('fs');
 
@@ -60,3 +60,9 @@ var rtc = easyrtc.listen(app, socketServer, null, function(err, rtcRef) {
     });
 });
 
+function onConnection(socket){
+  socket.on('drawing', (id, data) => socket.broadcast.to(id).emit('drawing', data));
+  socket.on('clear', (id) => socket.broadcast.to(id).emit('clear'));
+}
+
+socketIo.on('connection', onConnection);
