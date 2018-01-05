@@ -39,7 +39,7 @@ h2 {
 .buttons{
   position: absolute;
   margin-left:5px;
-  top: 650px;
+  top: 600px;
 }
 
 .colors {
@@ -61,10 +61,13 @@ h2 {
   cursor: pointer;
   height: 48px;
   width: 48px;
+  margin-top:3px;
 }
 
-.button.clear { background-image: url(../image/eraser.png); }
+.button.clear { background-image: url(../image/blank.png); }
 .button.save { background-image: url(../image/save.png); }
+.button.k { background-image: url(../image/save.png); }
+.button.eraser { background-image: url(../image/eraser.png); }
 
 .color.black { background-color: black; }
 .color.red { background-color: red; }
@@ -73,4 +76,3 @@ h2 {
 .color.yellow { background-color: yellow; }
 .color.orange { background-color: orange; }
 .color.gray { background-color: gray; }
-.color.purple { background-color: purple; }
