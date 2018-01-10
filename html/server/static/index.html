@@ -19,8 +19,10 @@
         <script src="/socket.io/socket.io.js"></script>
         <script type="text/javascript" src="/easyrtc/easyrtc.js"></script>
         <script type="text/javascript" src="js/audio_video.js"></script>
+        <script type="text/javascript" src="js/chat.js"></script>
 
-       
+
+
 
         <!--hide-->
         <!-- Styles used within the demo -->
@@ -83,18 +85,30 @@
                 <!--show-->
                 <div id="Container">
                     <div id="connectControls">
-                        <input type="checkbox" checked="checked" id="shareAudio" />Share audio
-                        <input type="checkbox" checked="checked" id="shareVideo" />Share video<br />
-                        <input type="checkbox" checked="checked" id="expectAudio" />Expect audio
-                        <input type="checkbox" checked="checked" id="expectVideo" />Expect video<br />
+                        <input type="checkbox" checked="checked" id="shareAudio" />
+                        <input type="checkbox" checked="checked" id="shareVideo" /><br />
+                        <input type="checkbox" checked="checked" id="expectAudio" />
+                        <input type="checkbox" checked="checked" id="expectVideo" /><br />
+                        <!-- <input type="checkbox" id="useFreshIce" onclick="easyrtc.setUseFreshIceEachPeerConnection(this.value);"/><br /> -->
 
-                        <!-- <input type="checkbox" id="useFreshIce" onclick="easyrtc.setUseFreshIceEachPeerConnection(this.value);"/>Fresh Ice<br /> -->
+                        <script>
+                          document.getElementById("shareAudio").style.visibility = "hidden";
+                          document.getElementById("shareVideo").style.visibility = "hidden";
+                          document.getElementById("expectAudio").style.visibility = "hidden";
+                          document.getElementById("expectVideo").style.visibility = "hidden";
+                          // document.getElementById("useFreshIce").style.visibility = "hidden";
+                        </script>
+
+
+
                         <button id="connectButton" onclick="connect()">Connect</button>
                         <button id="disconnectButton" onclick="disconnect();clearBox('conversation');">Disconnect</button>
                         <button id="hangupButton" disabled="disabled" onclick="hangup();clearBox('conversation');">Hangup</button>
                         <div id="iam">Not yet connected...</div>
                         <br />
-                        <strong>Connected users:</strong>
+                        <strong>Online users:</strong>
+                        <div id="users"></div>
+                        <strong>Call IDs:</strong>
                         <div id="otherClients"></div>
                     </div>
 
@@ -136,8 +150,8 @@
         </div>
 
         <div id="receiveMessageArea"><br />
-          Messages:
-            
+          Private chat:
+
               <br style="clear:both;" />
                 <hr />
           <div id="conversation"></div>
@@ -146,10 +160,22 @@
 
             </div>
         </div>
+
+        <div style="float:left;width:300px;height:250px;overflow:scroll-y;padding:10px;">
+
+  <div id="receiveMessageArea"><br />
+    Public Chat:
+        <br style="clear:both;" />
+          <hr />
+    <div id="pconversation"></div>
+  </div>
+  <input id="data" style="width:200px;" />
+  <input type="button" id="datasend" value="send" />
+</div>
         <!--show-->
-		
+
       <!--canvas-->
         <script src="js/canvas.js"></script>
-		<link rel="stylesheet" href="css/style.css">   
+		<link rel="stylesheet" href="css/style.css">
     </body>
 </html>
