@@ -1,0 +1,217 @@
+
+	html {
+        overflow: hidden;
+}
+
+
+	.LiveChat{
+		position:absolute;
+		border-radius: 5px;
+		bottom:0%;
+		right: 0%;
+		height:5%;
+		background-color: rgba(0,0,0,.5);
+	}
+
+	.LiveChatPriv{
+		position:absolute;
+		border-radius: 5px;
+		bottom:0%;
+		right: 0%;
+		height:5%;
+		background-color: rgba(0,0,0,.5);
+	}
+	/* width */
+	::-webkit-scrollbar {
+	    width: 5px;
+	}
+
+	/* Track */
+	::-webkit-scrollbar-track {
+	    background: rgba(1,1,1,.05);
+	}
+
+	/* Handle */
+	::-webkit-scrollbar-thumb {
+	    background:rgba(1,1,1,.5);
+			border-radius: 2px;
+	}
+
+	/* Handle on hover */
+	::-webkit-scrollbar-thumb:hover {
+	    background: #555;
+	}
+
+
+input[type=text] {
+	    width: 100%;
+			border-radius: 5px;
+	    padding: 8px 8px;
+	    margin: 8px 0;
+	    box-sizing: border-box;
+	    border: none;
+	    background-color: rgba(1,1,1,.1);
+	    color: white;
+	}
+
+#chatBtnPublic{
+	position: absolute;
+top: 5px;
+right: 25%;
+left: 25%;
+width: 50%;
+text-align: center;
+font-size: 18px;
+}
+
+#hideBtnPublic{
+	position: absolute;
+top: 5px;
+right: 25%;
+left: 25%;
+width: 50%;
+text-align: center;
+font-size: 18px;
+visibility: hidden;
+}
+
+
+#chatBtnPriv{
+	position: absolute;
+top: 5px;
+right: 25%;
+left: 25%;
+width: 50%;
+text-align: center;
+font-size: 18px;
+}
+
+#hideBtnPriv{
+	position: absolute;
+top: 5px;
+right: 25%;
+left: 25%;
+width: 50%;
+text-align: center;
+font-size: 18px;
+visibility: hidden;
+}
+
+#visibilityMessageArea{
+	visibility: hidden;
+}
+
+#visibilityMessageAreaPriv{
+	visibility: hidden;
+}
+
+#conv{
+	background-color: rgba(0,0,0,.2);
+	border-radius: 20px;
+	border: 5px solid;
+	border-color:rgba(0,0,0,0);
+	margin-left: 5%;
+	margin-right: 5%;
+	margin-top: 2%;
+	margin-bottom: 2%;
+	color: white;
+}
+
+#pconversation{
+	height: 350px;
+	width: 300px;
+	max-width: 300px;
+	overflow-y: scroll;
+	overflow-wrap: break-word;
+	margin-top: 5px;
+	margin-right: 5px;
+}
+
+#conversation{
+	height: 350px;
+	width: 300px;
+	max-width: 300px;
+	overflow-y: scroll;
+	overflow-wrap: break-word;
+	margin-top: 5px;
+	margin-right: 5px;
+}
+
+
+	#demoContainer {
+		position:relative;
+	}
+	#connectControls {
+		float:left;
+		width:250px;
+		text-align:center;
+		border: 2px solid black;
+	}
+	#otherClients {
+		height:100px;
+	}
+	#users{
+		height: 100px;
+	}
+	#selfVideo {
+		height:225px;
+		width:300px;
+		float:left;
+		border:1px solid gray;
+		margin-left:10px;
+	}
+	#callerVideo {
+		height:225px;
+		width:300px;
+		border:1px solid gray;
+		margin-left:10px;
+	}
+	#acceptCallBox {
+		height: 15%;
+		width: 15%;
+		display:none;
+		z-index:2;
+		position:absolute;
+		top:50%
+		left:40%;
+		right: 40%;
+		border: rgba(255,20,20,0) solid 2px;
+		border-radius: 5px;
+		background-color: rgba(255,20,20,.9);
+		padding:15px;
+	}
+
+#acceptCallLabel{
+	position: absolute;
+	left: 15%;
+	right: 15%;
+}
+
+	#canvas{
+		height:500px;
+		width:610px;
+		float:left;
+		margin-left:10px;
+		border:2px solid black;
+	}
+
+	#privateChatShow{
+		display: none;
+	}
+
+
+	#shareAudio{
+		visibility: hidden;
+	}
+	#shareVideo{
+		visibility: hidden;
+	}
+	#expectAudio{
+		visibility: hidden;
+	}
+	#expectVideo{
+		visibility: hidden;
+	}
+	#useFreshIce{
+		visibility: hidden;
+	}

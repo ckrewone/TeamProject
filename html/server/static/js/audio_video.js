@@ -1,8 +1,9 @@
 
 
-
 var selfEasyrtcid = "";
 var haveSelfVideo = false;
+
+var selfEasyrtcid = "";
 var socket = io();
 var callerSocketID;
 var mySocketID;
@@ -12,8 +13,8 @@ function addToConversation(who, msgType, content) {
   // Escape html special characters, then add linefeeds.
   content = content.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
   content = content.replace(/\n/g, "<br />");
-  document.getElementById("conversation").innerHTML +=
-  "<b>" + who + ":</b>&nbsp;" + content + "<br />";
+  document.getElementById("conversation").innerHTML += "<p id='conv'><b>" + who + ":</b>&nbsp;" + content + "</p>";
+	updateScroll("conversation");
 }
 
 
@@ -21,6 +22,10 @@ function disable(domId) {
     document.getElementById(domId).disabled = "disabled";
 }
 
+function updateScroll(myDiv){
+    var element = document.getElementById(myDiv);
+    element.scrollTop = element.scrollHeight;
+}
 
 function enable(domId) {
     document.getElementById(domId).disabled = "";
@@ -99,6 +104,17 @@ function convertListToButtons (roomName, occupants, isPrimary) {
         }
 }
 
+
+
+$(document).ready(function(){
+$('#sendMessageText').keypress(function(e) {
+	if(e.which == 13) {
+		$(this).blur();
+		$('#btn').focus().click();
+	}
+});
+});
+
 function send(){
     sendStuffWS(callerid);
     console.log("Send mess to: " + easyrtc.idToName(callerid));
@@ -132,6 +148,7 @@ function performCall(otherEasyrtcid) {
             enable('otherClients');
         }
         callerid = otherEasyrtcid;
+				$("#privateChatShow").css("display","inline");
     };
 
     var successCB = function() {
@@ -164,6 +181,8 @@ function loginFailure(errorCode, message) {
 
 function disconnect() {
   easyrtc.disconnect();
+	$("#privateChatShow").css("display","none");
+
   document.getElementById("iam").innerHTML = "logged out";
   enable("connectButton");
   disable("disconnectButton");

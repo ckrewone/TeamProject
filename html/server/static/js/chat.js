@@ -8,7 +8,8 @@ socket.on('connect', function(){
 
 // detektor, kiedy serwer wydaje komunikat "updatechat", aktualizuje treść czatu
 socket.on('updatechat', function (username, data) {
-  $('#pconversation').append('<b>'+username + ':</b> ' + data + '<br>');
+  $('#pconversation').append('<p id="conv"><b>'+username + ':</b> ' + data + '</p></ br>');
+	updateScroll("pconversation");
 });
 
 // detektor, kiedy serwer wysyła "aktualizatorów", aktualizuje listę nazw użytkowników
@@ -41,3 +42,45 @@ $(function(){
     }
   });
 });
+
+
+function updateScroll(myDiv){
+    var element = document.getElementById(myDiv);
+    element.scrollTop = element.scrollHeight;
+}
+
+$(document).ready(function(){
+	$("#chatBtnPriv").click(function() {
+		$(".LiveChatPriv").css("height","50%");
+		$("#chatBtnPriv").css("visibility","hidden");
+		$("#hideBtnPriv").css("visibility","visible");
+		$("#visibilityMessageAreaPriv").css("visibility","visible");
+	});
+	$("#hideBtnPriv").click(function(){
+		$(".LiveChatPriv").css("height","5%");
+		$("#hideBtnPriv").css("visibility","hidden");
+		$("#chatBtnPriv").css("visibility","visible");
+		$("#visibilityMessageAreaPriv").css("visibility","hidden");
+	});
+});
+
+$(document).ready(function(){
+	$("#chatBtnPublic").click(function() {
+		$(".LiveChat").css("height","50%");
+		$("#chatBtnPublic").css("visibility","hidden");
+		$("#hideBtnPublic").css("visibility","visible");
+		$("#visibilityMessageArea").css("visibility","visible");
+	});
+	$("#hideBtnPublic").click(function(){
+		$(".LiveChat").css("height","5%");
+		$("#hideBtnPublic").css("visibility","hidden");
+		$("#chatBtnPublic").css("visibility","visible");
+		$("#visibilityMessageArea").css("visibility","hidden");
+	});
+});
+
+$(document).ready(function () {
+				if (!$.browser.webkit) {
+						$('.wrapper').html('<p>Sorry! Non webkit users. :(</p>');
+				}
+		});

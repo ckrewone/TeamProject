@@ -1,181 +1,135 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> <!--skip-->
-        <title>Web App </title>
-        <link rel="stylesheet" type="text/css" href="/easyrtc/easyrtc.css" />
-
-        <!--hide-->
-        <link rel="stylesheet" type="text/css" href="css/landing.css" />
-
-        <!-- Prettify Code -->
-        <script type="text/javascript" src="js/prettify/prettify.js"></script>
-        <script type="text/javascript" src="js/prettify/loadAndFilter.js"></script>
-        <script type="text/javascript" src="js/prettify/jquery.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="js/prettify/prettify.css" />
-
-        <!--show-->
-        <!-- Assumes global locations for socket.io.js and easyrtc.js -->
-        <script src="/socket.io/socket.io.js"></script>
-        <script type="text/javascript" src="/easyrtc/easyrtc.js"></script>
-        <script type="text/javascript" src="js/audio_video.js"></script>
-        <script type="text/javascript" src="js/chat.js"></script>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> <!--skip-->
+	<title>Web App </title>
 
 
+	<link rel="stylesheet" type="text/css" href="/easyrtc/easyrtc.css" />
+	<link rel="stylesheet" type="text/css" href="css/landing.css" />
+	<link rel="stylesheet" type="text/css" href="css/chatBox.css" />
+	<link rel="stylesheet" type="text/css" href="js/prettify/prettify.css" />
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+
+	<script type="text/javascript" src="js/prettify/prettify.js"></script>
+	<script type="text/javascript" src="js/prettify/loadAndFilter.js"></script>
+	<script type="text/javascript" src="js/prettify/jquery.min.js"></script>
+	<script src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript" src="/easyrtc/easyrtc.js"></script>
+	<script type="text/javascript" src="js/audio_video.js"></script>
+	<script type="text/javascript" src="js/chat.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
 
 
-        <!--hide-->
-        <!-- Styles used within the demo -->
-        <style type="text/css">
-            #demoContainer {
-                position:relative;
-            }
-            #connectControls {
-                float:left;
-                width:250px;
-                text-align:center;
-                border: 2px solid black;
-            }
-            #otherClients {
-                height:200px;
-                overflow-y:scroll;
-            }
-            #selfVideo {
-                height:225px;
-                width:300px;
-                float:left;
-                border:1px solid gray;
-                margin-left:10px;
-            }
-            #callerVideo {
-                height:225px;
-                width:300px;
-                border:1px solid gray;
-                margin-left:10px;
-            }
-            #acceptCallBox {
-                display:none;
-                z-index:2;
-                position:absolute;
-                top:100px;
-                left:400px;
-                border:red solid 2px;
-                background-color:pink;
-                padding:15px;
-            }
-            #canvas{
-                height:500px;
-                width:610px;
-                float:left;
-                margin-left:10px;
-                border:2px solid black;
-            }
-        </style>
-        <!--show-->
-    </head>
-    <body>
-         <!--hide-->
-        <div id="container">
+	<!--show-->
+</head>
+<body>
 
-                <!--hide-->
-                <!-- Main Content -->
+<!--hide-->
+<div id="container">
 
-                <hr />
-                <h2>webChat</h2>
-                <!--show-->
-                <div id="Container">
-                    <div id="connectControls">
-                        <input type="checkbox" checked="checked" id="shareAudio" />
-                        <input type="checkbox" checked="checked" id="shareVideo" /><br />
-                        <input type="checkbox" checked="checked" id="expectAudio" />
-                        <input type="checkbox" checked="checked" id="expectVideo" /><br />
-                        <!-- <input type="checkbox" id="useFreshIce" onclick="easyrtc.setUseFreshIceEachPeerConnection(this.value);"/><br /> -->
+	<!--hide-->
+	<!-- Main Content -->
 
-                        <script>
-                          document.getElementById("shareAudio").style.visibility = "hidden";
-                          document.getElementById("shareVideo").style.visibility = "hidden";
-                          document.getElementById("expectAudio").style.visibility = "hidden";
-                          document.getElementById("expectVideo").style.visibility = "hidden";
-                          // document.getElementById("useFreshIce").style.visibility = "hidden";
-                        </script>
+	<hr />
+	<h1>webChat</h1>
+	<!--show-->
+	<div id="Container">
+		<div id="connectControls">
+			<input type="checkbox" checked="checked" id="shareAudio" />
+			<input type="checkbox" checked="checked" id="shareVideo" />
+			<input type="checkbox" checked="checked" id="expectAudio" />
+			<input type="checkbox" checked="checked" id="expectVideo" />
+			<input type="checkbox" id="useFreshIce" onclick="easyrtc.setUseFreshIceEachPeerConnection(this.value);"/><br />
 
+			<button id="connectButton" onclick="connect()">Create room</button>
+			<button id="disconnectButton" onclick="disconnect();clearBox('conversation');">Disconnect</button>
+			<button id="hangupButton" disabled="disabled" onclick="hangup();clearBox('conversation');">Hangup</button>
+			<div id="iam">Not yet connected...</div>
+			<br />
 
+			<strong>Room IDs:</strong>
+			<div id="otherClients"></div>
+			<strong>Online users:</strong>
+			<div id="users"></div>
 
-                        <button id="connectButton" onclick="connect()">Connect</button>
-                        <button id="disconnectButton" onclick="disconnect();clearBox('conversation');">Disconnect</button>
-                        <button id="hangupButton" disabled="disabled" onclick="hangup();clearBox('conversation');">Hangup</button>
-                        <div id="iam">Not yet connected...</div>
-                        <br />
-                        <strong>Online users:</strong>
-                        <div id="users"></div>
-                        <strong>Call IDs:</strong>
-                        <div id="otherClients"></div>
-                    </div>
+		</div>
 
-                    <div id="videos">
-                        <video autoplay="autoplay" id="selfVideo"  class="easyrtcMirror" muted="muted" volume="0"></video>
-                        <video autoplay="autoplay" id="callerVideo"></video>
-                        <div id="acceptCallBox"> <!-- Should be initially hidden using CSS -->
-                            <div id="acceptCallLabel"></div>
-                            <button id="callAcceptButton" >Accept</button> <button id="callRejectButton">Reject</button>
-                        </div>
-                    </div>
+		<div id="videos">
+			<video autoplay="autoplay" id="selfVideo"  class="easyrtcMirror" muted="muted" volume="0"></video>
+			<video autoplay="autoplay" id="callerVideo"></video>
+			<div id="acceptCallBox">
+				<div id="acceptCallLabel"></div>
+				<br style="clear:both;" />
+				<center><button type="button" class="btn"  id="callAcceptButton" >Accept</button> <button type="button" class="btn" id="callRejectButton">Reject</button></center>
+			</div>
+		</div>
 
-                    <div id="canvas">
-                        <canvas class="whiteboard"></canvas>
-                        <div class="colors">
-                            <div class="color black"></div>
-                            <div class="color red"></div>
-                            <div class="color green"></div>
-                            <div class="color blue"></div>
-                            <div class="color yellow"></div>
-                            <div class="color orange"></div>
-                            <div class="color gray"></div>
-                          </div>
-                          <div class="buttons">
-							<div class="button eraser"></div>
-                            <div class="button clear"></div>
-                            <a id="download"><div class="button save"></div></a>
-                          </div>
-                    </div>
-                </div>
-                <!--hide-->
-                <br style="clear:both;" />
-                <hr />
-
-            <div id="sendMessageArea">
-          <div id="iam"></div>
-          <textarea id="sendMessageText"></textarea>
-          <button id="btn" onclick="send()">Send</button>
-        </div>
-
-        <div id="receiveMessageArea"><br />
-          Private chat:
-
-              <br style="clear:both;" />
-                <hr />
-          <div id="conversation"></div>
-        </div>
-
-
-            </div>
-        </div>
-
-        <div style="float:left;width:300px;height:250px;overflow:scroll-y;padding:10px;">
-
-  <div id="receiveMessageArea"><br />
-    Public Chat:
-        <br style="clear:both;" />
-          <hr />
-    <div id="pconversation"></div>
-  </div>
-  <input id="data" style="width:200px;" />
-  <input type="button" id="datasend" value="send" />
+		<div id="canvas">
+			<canvas class="whiteboard"></canvas>
+			<div class="colors">
+				<div class="color black"></div>
+				<div class="color red"></div>
+				<div class="color green"></div>
+				<div class="color blue"></div>
+				<div class="color yellow"></div>
+				<div class="color orange"></div>
+				<div class="color gray"></div>
+			</div>
+			<div class="buttons">
+				<div class="button eraser"></div>
+				<div class="button clear"></div>
+				<a id="download"><div class="button save"></div></a>
+			</div>
+		</div>
+	</div>
+	<!--hide-->
+	<br style="clear:both;" />
+	<hr />
 </div>
-        <!--show-->
 
-      <!--canvas-->
-        <script src="js/canvas.js"></script>
-		<link rel="stylesheet" href="css/style.css">
-    </body>
+
+ <div id="privateChatShow">
+
+	<div class="LiveChatPriv" style="right:16%">
+
+		<button type="button" class="btn" id="chatBtnPriv">Room chat</button>
+		<button type="button" class="btn btn-link" id="hideBtnPriv">Hidden chat</button>
+		<p>
+			<div id="visibilityMessageAreaPriv">
+				<br style="clear:both;" />
+				<hr />
+				<div id="sendMessageArea">
+					<div id="iam"></div>
+					<input type="text" id="sendMessageText" style="width:200px;margin-left:20px;"/>
+					<button id="btn" class="btn" onclick="send()">send</button>
+				</div>
+					<div id="conversation"></div>
+			</div>
+		</p>
+	</div>
+</div>
+
+
+ <div class="LiveChat" >
+	<button type="button" class="btn" id="chatBtnPublic">Public chat</button>
+	<button type="button" class="btn btn-link" id="hideBtnPublic">Hidden chat</button>
+	<p>
+		<div id="visibilityMessageArea">
+			<br style="clear:both;" />
+			<hr />
+			<input type="text" id="data" style="width:200px;margin-left:20px;"/>
+			<input type="button" class="btn" id="datasend" value="send" />
+			<div id="pconversation"></div>
+		</div>
+	</p>
+</div>
+
+<!--show-->
+
+<!--canvas-->
+<script src="js/canvas.js"></script>
+<link rel="stylesheet" href="css/style.css">
+</body>
 </html>
