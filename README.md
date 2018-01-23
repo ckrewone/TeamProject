@@ -20,7 +20,6 @@ $ git clone https://github.com/ckrewone/TeamProject.git
 $ cd TeamProject/html
 $ npm install
 $ cd server
-$ npm install
 $ node server.js
 ```
 3. Should go on https://localhost/ .
