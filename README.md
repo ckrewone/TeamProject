@@ -8,9 +8,8 @@
 ##### Authors: Michał Żakowski , Damian Henisz, Adam Wójcik
 
 ## Begin:
----------
 
-Piio is our first Web-app based on EasyRTC. For demo visit https://80.211.249.72 (I think this side is alive, yet :P ). This is simple web chat app with live canvas like MS paint.
+### Piio is our first Web-app based on EasyRTC. For demo visit https://80.211.249.72 (I think this side is alive, yet :P ). This is simple web chat app with live canvas like MS paint.
 
 
 ## Quick Setup:
