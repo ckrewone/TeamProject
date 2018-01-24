@@ -1,6 +1,6 @@
 ![Piio](./html/logo/ico.jpg)
 # PiioApp
-![PiioLogo](./html/logo/flavicon.png)
+![PiioLogo](./html/logo/favicon.png)
 
 ![EasyRTC](https://github.com/priologic/easyrtc/blob/master/api/img/easyrtc.png)
 ### Based on EasyRTC
