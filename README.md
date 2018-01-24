@@ -1,8 +1,9 @@
 ![Piio](./html/logo/ico.jpg)
 # PiioApp
+---------
+
 ![EasyRTC](https://github.com/priologic/easyrtc/blob/master/api/img/easyrtc.png)
 ### Based on EasyRTC
---------------------
 
 ## 1st Team Project (University of Lodz, WMII)
 ##### Authors: Michał Żakowski , Damian Henisz, Adam Wójcik
