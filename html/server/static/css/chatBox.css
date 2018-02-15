@@ -113,7 +113,7 @@ visibility: hidden;
 	margin-left: 5%;
 	margin-right: 5%;
 	margin-top: 2%;
-	margin-bottom: 2%;
+	margin-bottom: 5%;
 	color: white;
 }
 
@@ -146,6 +146,7 @@ visibility: hidden;
 		width:250px;
 		text-align:center;
 		border: 2px solid black;
+		color: #FFFFFF
 	}
 	#otherClients {
 		height:100px;
@@ -156,44 +157,42 @@ visibility: hidden;
 	#selfVideo {
 		height:225px;
 		width:300px;
-		float:left;
-		border:1px solid gray;
+		border:2px solid black;
+		margin-top: 30px;
 		margin-left:10px;
+		margin-right: 5px;
+		margin-bottom: 1px;
 	}
 	#callerVideo {
 		height:225px;
 		width:300px;
-		border:1px solid gray;
+		border:2px solid black;
 		margin-left:10px;
+		margin-right: :2px:
 	}
+
 	#acceptCallBox {
-		height: 15%;
-		width: 15%;
+		height: 25%;
+		width: 25%;
 		display:none;
 		z-index:2;
 		position:absolute;
-		top:50%
+		top: 50%
 		left:40%;
 		right: 40%;
-		border: rgba(255,20,20,0) solid 2px;
+		border: #cc0033 solid 2px;
 		border-radius: 5px;
-		background-color: rgba(255,20,20,.9);
+		background-color: #cc0033;
 		padding:15px;
 	}
 
 #acceptCallLabel{
 	position: absolute;
-	left: 15%;
+	left: 25%;
 	right: 15%;
+	color:white;
 }
 
-	#canvas{
-		height:500px;
-		width:610px;
-		float:left;
-		margin-left:10px;
-		border:2px solid black;
-	}
 
 	#privateChatShow{
 		display: none;
