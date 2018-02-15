@@ -51,31 +51,43 @@ function updateScroll(myDiv){
 
 $(document).ready(function(){
 	$("#chatBtnPriv").click(function() {
-		$(".LiveChatPriv").css("height","50%");
+		$(".LiveChatPriv").animate({height: '500px'}, "fast","swing", function(){
 		$("#chatBtnPriv").css("visibility","hidden");
 		$("#hideBtnPriv").css("visibility","visible");
 		$("#visibilityMessageAreaPriv").css("visibility","visible");
+	})
 	});
 	$("#hideBtnPriv").click(function(){
-		$(".LiveChatPriv").css("height","5%");
+		$(".LiveChatPriv").animate({height: '500px'}, "fast","swing", function(){
 		$("#hideBtnPriv").css("visibility","hidden");
 		$("#chatBtnPriv").css("visibility","visible");
 		$("#visibilityMessageAreaPriv").css("visibility","hidden");
+	})
 	});
 });
 
 $(document).ready(function(){
 	$("#chatBtnPublic").click(function() {
-		$(".LiveChat").css("height","50%");
-		$("#chatBtnPublic").css("visibility","hidden");
-		$("#hideBtnPublic").css("visibility","visible");
-		$("#visibilityMessageArea").css("visibility","visible");
+		$(".LiveChat").animate({height: '500px'}, "fast","swing", function(){
+			$("#chatBtnPublic").css("visibility","hidden");
+			$("#hideBtnPublic").css("visibility","visible");
+			$("#visibilityMessageArea").css("visibility","visible");
+		})
+		// $(".LiveChat").css("height","500px");
+		// $("#chatBtnPublic").css("visibility","hidden");
+		// $("#hideBtnPublic").css("visibility","visible");
+		// $("#visibilityMessageArea").css("visibility","visible");
 	});
 	$("#hideBtnPublic").click(function(){
-		$(".LiveChat").css("height","5%");
-		$("#hideBtnPublic").css("visibility","hidden");
-		$("#chatBtnPublic").css("visibility","visible");
-		$("#visibilityMessageArea").css("visibility","hidden");
+		$(".LiveChat").animate({height: '50px'}, "fast","swing", function(){
+			$("#hideBtnPublic").css("visibility","hidden");
+			$("#chatBtnPublic").css("visibility","visible");
+			$("#visibilityMessageArea").css("visibility","hidden");
+		})
+		// $(".LiveChat").css("height","50px");
+		// $("#hideBtnPublic").css("visibility","hidden");
+		// $("#chatBtnPublic").css("visibility","visible");
+		// $("#visibilityMessageArea").css("visibility","hidden");
 	});
 });
 

@@ -3,50 +3,26 @@
  * Fix user-agent
  */
 
-* {
-  box-sizing: border-box;
-}
-
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-h2 {
-    position: absolute;
-    left: 100px;
-    top: 150px;
-}
-
-
-
 /**
  * Canvas
  */
 
 .whiteboard{
-  height: 100%;
-  width: 100%;
-  position: relative;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
+  height:525px;
+  width:500px;
   cursor: url(../image/pencil.cur), default;
+  border:2px solid black;
 }
 
 .buttons{
   position: absolute;
   margin-right:5px;
-  top: 68%;
+  top: 260px;
+  margin-right: auto;
+  margin-top: auto;
 }
 
-.colors {
-  position: absolute;
-  top: 34%;
-  margin-left:5px;
-}
+
 
 .color {
   display: block;
@@ -54,6 +30,7 @@ h2 {
   border-radius: 25px;
   height: 48px;
   width: 48px;
+  margin-top:3px;
 }
 
 .button {
@@ -64,6 +41,13 @@ h2 {
   margin-top:3px;
 }
 
+.buttons{
+  position: absolute;
+  margin-left:10px;
+  top: 0px;
+  margin-right: auto;
+  margin-top: auto;
+}
 .button.clear { background-image: url(../image/blank.png); }
 .button.save { background-image: url(../image/save.png); }
 .button.k { background-image: url(../image/save.png); }
