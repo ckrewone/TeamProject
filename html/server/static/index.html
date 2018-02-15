@@ -2,9 +2,10 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> <!--skip-->
-	<title>Web App </title>
+	<title>Pillo App </title>
 
-
+	<link rel="Shortcut icon" href="/image/favicon.png">
+	<link href="css/full.css" rel="stylesheet" type="text/css">
 	<link rel="stylesheet" type="text/css" href="/easyrtc/easyrtc.css" />
 	<link rel="stylesheet" type="text/css" href="css/landing.css" />
 	<link rel="stylesheet" type="text/css" href="css/chatBox.css" />
@@ -27,26 +28,36 @@
 <body>
 
 <!--hide-->
-<div id="container">
+<div class="container">
 
 	<!--hide-->
 	<!-- Main Content -->
+	<nav class="navbar" style="padding-bottom: 5px;">
+			<p id="Logo" class="navbar-brand"> <img id="Logopng" src="/image/favicon.png" ><b> Pillo App </b> </p>
 
-	<hr />
-	<h1>webChat</h1>
+			</nav>
+
+			<div id="acceptCallBox">
+				<div id="acceptCallLabel"></div>
+				<br style="clear:both;" />
+					<br>  </br>
+				<center><button type="button" class="btn"  id="callAcceptButton" >Accept</button> <button type="button" class="btn" id="callRejectButton">Reject</button></center>
+			</div>
 	<!--show-->
-	<div id="Container">
-		<div id="connectControls">
+	<div class="row">
+
+
+		<div class="col-md-3" id="connectControls">
 			<input type="checkbox" checked="checked" id="shareAudio" />
 			<input type="checkbox" checked="checked" id="shareVideo" />
 			<input type="checkbox" checked="checked" id="expectAudio" />
 			<input type="checkbox" checked="checked" id="expectVideo" />
 			<input type="checkbox" id="useFreshIce" onclick="easyrtc.setUseFreshIceEachPeerConnection(this.value);"/><br />
 
-			<button id="connectButton" onclick="connect()">Create room</button>
-			<button id="disconnectButton" onclick="disconnect();clearBox('conversation');">Disconnect</button>
-			<button id="hangupButton" disabled="disabled" onclick="hangup();clearBox('conversation');">Hangup</button>
-			<div id="iam">Not yet connected...</div>
+			<button id="connectButton" onclick="connect()" type="button" class="btn btn-default btn-sm" >Create room</button>
+			<button id="disconnectButton" onclick="disconnect();clearBox('conversation');" type="button" class="btn btn-default btn-sm">Disconnect</button>
+			<button id="hangupButton" disabled="disabled" onclick="hangup();clearBox('conversation');" type="button" class="btn btn-default btn-sm" >Hangup</button>
+			<div id="iam" > Not yet connected...</div>
 			<br />
 
 			<strong>Room IDs:</strong>
@@ -56,17 +67,15 @@
 
 		</div>
 
-		<div id="videos">
+
+
+		<div class="col-md-4" id="videos">
 			<video autoplay="autoplay" id="selfVideo"  class="easyrtcMirror" muted="muted" volume="0"></video>
 			<video autoplay="autoplay" id="callerVideo"></video>
-			<div id="acceptCallBox">
-				<div id="acceptCallLabel"></div>
-				<br style="clear:both;" />
-				<center><button type="button" class="btn"  id="callAcceptButton" >Accept</button> <button type="button" class="btn" id="callRejectButton">Reject</button></center>
-			</div>
+
 		</div>
 
-		<div id="canvas">
+		<div class="col-md-4" >
 			<canvas class="whiteboard"></canvas>
 			<div class="colors">
 				<div class="color black"></div>
@@ -77,20 +86,17 @@
 				<div class="color orange"></div>
 				<div class="color gray"></div>
 			</div>
+
 			<div class="buttons">
 				<div class="button eraser"></div>
 				<div class="button clear"></div>
 				<a id="download"><div class="button save"></div></a>
 			</div>
 		</div>
-	</div>
-	<!--hide-->
-	<br style="clear:both;" />
-	<hr />
 </div>
 
-
- <div id="privateChatShow">
+	<!--hide-->
+	<div id="privateChatShow">
 
 	<div class="LiveChatPriv" style="right:16%">
 
@@ -126,10 +132,16 @@
 	</p>
 </div>
 
+</div>
 <!--show-->
+
+
 
 <!--canvas-->
 <script src="js/canvas.js"></script>
 <link rel="stylesheet" href="css/style.css">
+
+
+
 </body>
 </html>
