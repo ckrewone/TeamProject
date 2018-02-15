@@ -23,11 +23,7 @@
 }
 
 
-.colors {
-  position: absolute;
-  top: 34%;
-  margin-left:5px;
-}
+
 .color {
   display: block;
   cursor: pointer;
@@ -45,6 +41,13 @@
   margin-top:3px;
 }
 
+.buttons{
+  position: absolute;
+  margin-left:10px;
+  top: 0px;
+  margin-right: auto;
+  margin-top: auto;
+}
 .button.clear { background-image: url(../image/blank.png); }
 .button.save { background-image: url(../image/save.png); }
 .button.k { background-image: url(../image/save.png); }
