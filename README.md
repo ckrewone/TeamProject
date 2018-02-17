@@ -1,10 +1,7 @@
 ![Piio](./html/logo/ico.jpg)
 # PiioApp
 
-![EasyRTC](https://github.com/priologic/easyrtc/blob/master/api/img/easyrtc.png)
-(./html/logo/node-express.png)
-(./html/logo/html.jpg)
-(./html/logo/css.jpg)
+![EasyRTC](https://github.com/priologic/easyrtc/blob/master/api/img/easyrtc.png) ![node](./html/logo/node-express.png) ![html](./html/logo/html.jpg) ![css](./html/logo/css.jpg)
 ### Based on EasyRTC
 
 ## 1st Team Project (University of Lodz, WMII)
