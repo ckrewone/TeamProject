@@ -2,6 +2,9 @@
 # PiioApp
 
 ![EasyRTC](https://github.com/priologic/easyrtc/blob/master/api/img/easyrtc.png)
+![Nodejs] (./html/logo/node-express.png)
+![Html] (./html/logo/html.jpg)
+![css] (./html/logo/css.jpg)
 ### Based on EasyRTC
 
 ## 1st Team Project (University of Lodz, WMII)
@@ -9,7 +12,7 @@
 
 ## Begin:
 
-### Piio is our first Web-app based on EasyRTC. For demo visit https://80.211.249.72 (I think this side is alive, yet :P ). This is simple web chat app with live canvas like MS paint.
+### Piio is our first Web-app based on EasyRTC. For demo visit https://176.107.131.238 (I think this side is alive, yet :P ). This is simple web chat app with live canvas like MS paint.
 
 
 ## Quick Setup:
