@@ -16,6 +16,6 @@ $ npm install
 $ nodw server/server.js
 ```
 
-3. Open new tab at https://localhost
+Open new tab at https://localhost
 
 ## Peace :D
